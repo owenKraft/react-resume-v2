@@ -1,0 +1,193 @@
+hr {
+  color: black;
+  height: 10;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  border: none;
+  border-bottom: 1px solid dimgray;
+  width: 42.5%;
+}
+
+textarea {
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+button {
+  background: transparent;
+  color: dimgray;
+  border: none;
+}
+
+.btn-green {
+  background: transparent;
+  color: green;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.btn-green-inverse {
+  background: green;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.btn-red {
+  background: transparent;
+  color:red;
+  border: 1px solid red;
+  border-radius: 10px;
+}
+
+.btn-dimgray {
+  color: dimgray;
+}
+
+.btn-border {
+  border: 1px solid dimgray;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-add-margin {
+  margin: 10px 0px;
+}
+
+.edit-job-hidden {
+  display: none;
+}
+
+.edit-responsibilities {
+  margin-bottom: 0px;
+}
+
+.btn-add-responsibility {
+  margin-left: 40px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(80ch, 100%)
+    1fr;
+}
+.wrapper > * {
+  grid-column: 2;
+}
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+.image-banner {
+  object-position: 0 0;
+  object-fit: cover;
+  max-height: 200px;
+  width: 100%;
+}
+
+.float-right {
+  float: right;
+}
+
+.job-role {
+  font-weight: bold;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .3s ease;
+  background-color: transparent;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.icon {
+  color: white;
+  font-size: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#user-name {
+  color: #115dbf;
+}
+
+#input-bio {
+  margin-top: 10px;
+}
+
+#school-text {
+  font-weight: bold;
+}
+
+#bio {
+  margin-bottom: 0px;;
+}
+
+#banner-src {
+  width: 75%;
+}
