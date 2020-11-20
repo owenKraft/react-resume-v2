@@ -1,54 +1,47 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect } from 'react';
 
-class Banner extends Component {
-    constructor() {
-        super()
-        this.state = {
-            src: "https://i.pinimg.com/originals/3b/29/ee/3b29ee0897204e6ece68886641afcb63.png",
-            editFlag: false,
-        }
+const Banner = () => {
+    const [banner, setBanner] = useState("https://i.pinimg.com/originals/3b/29/ee/3b29ee0897204e6ece68886641afcb63.png");
+    const [editFlag, setEditFlag] = useState(false)
 
-        this.edit = this.edit.bind(this);
-        this.update = this.update.bind(this);
-    }
+    useEffect(() => {
+        const toggleEdit = () => {
+          if(editFlag === true){
+            const src = document.getElementById("banner-src").value;
+            setBanner(src)
+            setEditFlag(!editFlag);
+          } else {
+            setEditFlag(!editFlag);
+          }
+        };
+    
+        document.querySelector(".fa-cog").addEventListener("click", toggleEdit);
+    
+        return () => {
+          document.querySelector(".fa-cog").removeEventListener("click", toggleEdit);
+        };
+      }, [editFlag])
 
-    edit(){
-        this.setState({
-            editFlag: !this.state.editFlag,
-        })
-    }
-
-    update(){
-        const src = document.getElementById("banner-src").value;
-
-        this.setState({
-            src: src,
-            editFlag: !this.state.editFlag,
-        })
-    }
-
-    render() {
-        if(this.state.editFlag === true){
-            return (
-                <div class="container">
-                    <img className="image-banner" src={this.state.src} />
-                    <label for="banner-src">image URL: </label>
-                    <input id="banner-src" name="banner-src" type="text" defaultValue={this.state.src}></input>
-                    <button onClick={this.update} class="btn-green float-right">all done</button>
-                </div>
-            )
-        } else {
-            return (
-                <div class="container">
-                    <img className="image-banner" src={this.state.src} />
+    if(editFlag === true){
+        return (
+            <div class="container">
+                <img className="image-banner" src={banner} alt=""/>
+                <label for="banner-src">image URL: </label>
+                <input id="banner-src" name="banner-src" type="text" defaultValue={banner}></input>
+                <button id="banner-submit-btn" class="btn-green float-right fa-cog">all done</button>
+            </div>
+        )
+    } else { 
+        return (
+            <div class="container">
+                <img className="image-banner" src={banner} alt=""/>
                     <div class="overlay">
                         <a href="#" class="icon" title="User Profile">
-                        <i onClick={this.edit} class="fas fa-cog"></i>
+                            <i class="fas fa-cog"></i>
                         </a>
-                    </div>
                 </div>
-            )
-        }
+            </div>
+        )
     }
 }
   
